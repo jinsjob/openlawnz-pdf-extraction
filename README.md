@@ -4,7 +4,7 @@
 
 * Microsoft Office 365 (other older versions may work)
 * Visual Studio 2019
-* [Sample case files in a folder](https://openlawnz-my.sharepoint.com/:f:/g/personal/andrew_openlaw_nz/EvknIZ3w4YdGvHVeRg5LVFsBDzvZdjvmm3TKbh9OMSLJGw?e=eLlbIb) (which you will point to)
+* [Sample case files in a folder](https://openlawnz-my.sharepoint.com/:f:/g/personal/andrew_openlaw_nz/EvknIZ3w4YdGvHVeRg5LVFsBDzvZdjvmm3TKbh9OMSLJGw?e=eLlbIb) (which you will point to - download this folder)
 
 ## Running
 
