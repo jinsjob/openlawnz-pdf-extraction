@@ -28,3 +28,7 @@ Nothing will show, but 3 text files will appear next to the source file.
 * `filename.footnotes.txt`
 
 A log file per run is also generated prefixed `_log`
+
+## Things to note
+
+* Sometimes there are leftover Word processes and files. The processor will clean it up before it runs each time, but if you use MS Word, it may intefere, so open up Task Manager and kill any old Word processes.
