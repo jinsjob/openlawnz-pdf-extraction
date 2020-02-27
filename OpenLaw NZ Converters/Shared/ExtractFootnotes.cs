@@ -7,12 +7,12 @@ using System.Text.RegularExpressions;
 
 namespace Shared
 {
+
     class PageFootnoteData
     {
         public int PageNumber { get; set; }
         public string FootnoteText { get; set; }
     }
-
     public class ExtractFootnotes
     {
 
@@ -23,7 +23,8 @@ namespace Shared
                 return new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds().ToString();
             }
         }
-
+        public static object[] jsonOutput = new object[3];
+        static string footNoteContexts = string.Empty;
         public static void Process(Document Doc, Application application, Logger logger)
         {
             Document activeDocument = Doc;
@@ -78,18 +79,26 @@ namespace Shared
 
             void logFootnoteData(string data)
             {
-                using (StreamWriter sw = File.AppendText(footnotesPath))
-                {
-                    sw.WriteLine(data.Trim());
-                }
+                //using (StreamWriter sw = File.AppendText(footnotesPath))
+                //{
+                //sw.WriteLine(data.Trim());
+                if (string.IsNullOrEmpty(data))
+                    jsonOutput[0] = false;
+                else
+                    jsonOutput[0] = true;
+                jsonOutput[1] = data;
+
+                //  }
             }
 
             void logFootnoteContextData(string data)
             {
-                using (StreamWriter sw = File.AppendText(footnoteContextsPath))
-                {
-                    sw.WriteLine(data.Trim());
-                }
+                //using (StreamWriter sw = File.AppendText(footnoteContextsPath))
+                //{
+                //sw.WriteLine(data.Trim());
+                footNoteContexts = footNoteContexts + "," + data;
+
+                // }
             }
 
 
@@ -410,6 +419,7 @@ namespace Shared
                 {
                     logFootnoteContextData(footnoteContext.Value);
                 }
+                jsonOutput[2] = footNoteContexts.Remove(0, 1);
             }
 
             logger.log("finished. SaveAs2");
